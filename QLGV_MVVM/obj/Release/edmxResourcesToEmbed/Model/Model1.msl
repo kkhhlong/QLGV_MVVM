@@ -1,0 +1,98 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="QUANLYGIANGVIENModelStoreContainer" CdmEntityContainer="QUANLYGIANGVIENEntities1">
+    <EntitySetMapping Name="GiangViens">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.GiangVien">
+        <MappingFragment StoreEntitySet="GiangVien">
+          <ScalarProperty Name="hoLotGiangVien" ColumnName="hoLotGiangVien" />
+          <ScalarProperty Name="tenGiangVien" ColumnName="tenGiangVien" />
+          <ScalarProperty Name="maGiangVien" ColumnName="maGiangVien" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="LopHocs">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.LopHoc">
+        <MappingFragment StoreEntitySet="LopHoc">
+          <ScalarProperty Name="maLopHoc" ColumnName="maLopHoc" />
+          <ScalarProperty Name="thu" ColumnName="thu" />
+          <ScalarProperty Name="tietBatDau" ColumnName="tietBatDau" />
+          <ScalarProperty Name="soTiet" ColumnName="soTiet" />
+          <ScalarProperty Name="phong" ColumnName="phong" />
+          <ScalarProperty Name="maLop" ColumnName="maLop" />
+          <ScalarProperty Name="maGiangVien" ColumnName="maGiangVien" />
+          <ScalarProperty Name="maMonHoc" ColumnName="maMonHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MonHocs">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.MonHoc">
+        <MappingFragment StoreEntitySet="MonHoc">
+          <ScalarProperty Name="tenMonHoc" ColumnName="tenMonHoc" />
+          <ScalarProperty Name="maMonHoc" ColumnName="maMonHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ThongTinHocs">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.ThongTinHoc">
+        <MappingFragment StoreEntitySet="ThongTinHoc">
+          <ScalarProperty Name="ngayNhapHoc" ColumnName="ngayNhapHoc" />
+          <ScalarProperty Name="ngayKetThuc" ColumnName="ngayKetThuc" />
+          <ScalarProperty Name="soTietHoc" ColumnName="soTietHoc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TietHocs">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.TietHoc">
+        <MappingFragment StoreEntitySet="TietHoc">
+          <ScalarProperty Name="maLopHoc" ColumnName="maLopHoc" />
+          <ScalarProperty Name="idTietHoc" ColumnName="idTietHoc" />
+          <ScalarProperty Name="tenPhong" ColumnName="tenPhong" />
+          <ScalarProperty Name="ngayHoc" ColumnName="ngayHoc" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TietHocBus">
+      <EntityTypeMapping TypeName="QUANLYGIANGVIENModel.TietHocBu">
+        <MappingFragment StoreEntitySet="TietHocBu">
+          <ScalarProperty Name="maLopHoc" ColumnName="maLopHoc" />
+          <ScalarProperty Name="idTietHoc" ColumnName="idTietHoc" />
+          <ScalarProperty Name="tenPhong" ColumnName="tenPhong" />
+          <ScalarProperty Name="ngayHoc" ColumnName="ngayHoc" />
+          <ScalarProperty Name="tietBatDau" ColumnName="tietBatDau" />
+          <ScalarProperty Name="trangThai" ColumnName="trangThai" />
+          <ScalarProperty Name="ghiChu" ColumnName="ghiChu" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="LayGiangVienTheoTen" FunctionName="QUANLYGIANGVIENModel.Store.LayGiangVienTheoTen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYGIANGVIENModel.LayGiangVienTheoTen_Result">
+          <ScalarProperty Name="hoLotGiangVien" ColumnName="hoLotGiangVien" />
+          <ScalarProperty Name="tenGiangVien" ColumnName="tenGiangVien" />
+          <ScalarProperty Name="maGiangVien" ColumnName="maGiangVien" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="LayMonHocTheoTen" FunctionName="QUANLYGIANGVIENModel.Store.LayMonHocTheoTen">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="QUANLYGIANGVIENModel.LayMonHocTheoTen_Result">
+          <ScalarProperty Name="tenMonHoc" ColumnName="tenMonHoc" />
+          <ScalarProperty Name="maMonHoc" ColumnName="maMonHoc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="luuThongTinHoc" FunctionName="QUANLYGIANGVIENModel.Store.luuThongTinHoc" />
+    <FunctionImportMapping FunctionImportName="SuaBuoiHoc" FunctionName="QUANLYGIANGVIENModel.Store.SuaBuoiHoc" />
+    <FunctionImportMapping FunctionImportName="SuaBuoiHocBu" FunctionName="QUANLYGIANGVIENModel.Store.SuaBuoiHocBu" />
+    <FunctionImportMapping FunctionImportName="themGiangVien" FunctionName="QUANLYGIANGVIENModel.Store.themGiangVien" />
+    <FunctionImportMapping FunctionImportName="themLopHoc" FunctionName="QUANLYGIANGVIENModel.Store.themLopHoc" />
+    <FunctionImportMapping FunctionImportName="themMonHoc" FunctionName="QUANLYGIANGVIENModel.Store.themMonHoc" />
+    <FunctionImportMapping FunctionImportName="themTietHoc" FunctionName="QUANLYGIANGVIENModel.Store.themTietHoc" />
+    <FunctionImportMapping FunctionImportName="themTietHocBu" FunctionName="QUANLYGIANGVIENModel.Store.themTietHocBu" />
+    <FunctionImportMapping FunctionImportName="UpDateTietHocTheoNgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoNgayNghi" />
+    <FunctionImportMapping FunctionImportName="UpDateTietHocTheoTiet_NgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoTiet_NgayNghi" />
+    <FunctionImportMapping FunctionImportName="xoaDuLieu" FunctionName="QUANLYGIANGVIENModel.Store.xoaDuLieu" />
+  </EntityContainerMapping>
+</Mapping>

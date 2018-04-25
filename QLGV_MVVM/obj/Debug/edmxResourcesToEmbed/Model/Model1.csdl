@@ -1,0 +1,241 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="QUANLYGIANGVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GiangVien">
+    <Key>
+      <PropertyRef Name="maGiangVien" />
+    </Key>
+    <Property Name="hoLotGiangVien" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+    <Property Name="tenGiangVien" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="maGiangVien" Type="String" MaxLength="5" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LopHocs" Relationship="Self.FK__LopHoc__maGiangV__15502E78" FromRole="GiangVien" ToRole="LopHoc" />
+  </EntityType>
+  <EntityType Name="LopHoc">
+    <Key>
+      <PropertyRef Name="maLopHoc" />
+    </Key>
+    <Property Name="maLopHoc" Type="Int32" Nullable="false" />
+    <Property Name="thu" Type="Int32" />
+    <Property Name="tietBatDau" Type="Int32" />
+    <Property Name="soTiet" Type="Int32" />
+    <Property Name="phong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="maLop" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="maGiangVien" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
+    <Property Name="maMonHoc" Type="String" MaxLength="7" FixedLength="true" Unicode="false" />
+    <NavigationProperty Name="GiangVien" Relationship="Self.FK__LopHoc__maGiangV__15502E78" FromRole="LopHoc" ToRole="GiangVien" />
+    <NavigationProperty Name="MonHoc" Relationship="Self.FK__LopHoc__maMonHoc__164452B1" FromRole="LopHoc" ToRole="MonHoc" />
+    <NavigationProperty Name="TietHocs" Relationship="Self.FK__TietHoc__maLopHo__1920BF5C" FromRole="LopHoc" ToRole="TietHoc" />
+    <NavigationProperty Name="TietHocBus" Relationship="Self.FK__TietHocBu__maLop__36B12243" FromRole="LopHoc" ToRole="TietHocBu" />
+  </EntityType>
+  <EntityType Name="MonHoc">
+    <Key>
+      <PropertyRef Name="maMonHoc" />
+    </Key>
+    <Property Name="tenMonHoc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="maMonHoc" Type="String" MaxLength="7" FixedLength="true" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="LopHocs" Relationship="Self.FK__LopHoc__maMonHoc__164452B1" FromRole="MonHoc" ToRole="LopHoc" />
+  </EntityType>
+  <EntityType Name="ThongTinHoc">
+    <Key>
+      <PropertyRef Name="ngayNhapHoc" />
+    </Key>
+    <Property Name="ngayNhapHoc" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ngayKetThuc" Type="DateTime" Precision="0" />
+    <Property Name="soTietHoc" Type="Int32" />
+  </EntityType>
+  <EntityType Name="TietHoc">
+    <Key>
+      <PropertyRef Name="idTietHoc" />
+    </Key>
+    <Property Name="maLopHoc" Type="Int32" />
+    <Property Name="idTietHoc" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="tenPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ngayHoc" Type="DateTime" Precision="0" />
+    <Property Name="trangThai" Type="Int32" />
+    <Property Name="ghiChu" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK__TietHoc__maLopHo__1920BF5C" FromRole="TietHoc" ToRole="LopHoc" />
+    <NavigationProperty Name="TietHocBu" Relationship="Self.FK__TietHocBu__idTie__37A5467C" FromRole="TietHoc" ToRole="TietHocBu" />
+  </EntityType>
+  <EntityType Name="TietHocBu">
+    <Key>
+      <PropertyRef Name="idTietHoc" />
+    </Key>
+    <Property Name="maLopHoc" Type="Int32" />
+    <Property Name="idTietHoc" Type="Int32" Nullable="false" />
+    <Property Name="tenPhong" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="ngayHoc" Type="DateTime" Precision="0" />
+    <Property Name="tietBatDau" Type="Int32" />
+    <Property Name="trangThai" Type="Int32" />
+    <Property Name="ghiChu" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="LopHoc" Relationship="Self.FK__TietHocBu__maLop__36B12243" FromRole="TietHocBu" ToRole="LopHoc" />
+    <NavigationProperty Name="TietHoc" Relationship="Self.FK__TietHocBu__idTie__37A5467C" FromRole="TietHocBu" ToRole="TietHoc" />
+  </EntityType>
+  <Association Name="FK__LopHoc__maGiangV__15502E78">
+    <End Role="GiangVien" Type="Self.GiangVien" Multiplicity="0..1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GiangVien">
+        <PropertyRef Name="maGiangVien" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="maGiangVien" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__LopHoc__maMonHoc__164452B1">
+    <End Role="MonHoc" Type="Self.MonHoc" Multiplicity="0..1" />
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MonHoc">
+        <PropertyRef Name="maMonHoc" />
+      </Principal>
+      <Dependent Role="LopHoc">
+        <PropertyRef Name="maMonHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TietHoc__maLopHo__1920BF5C">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
+    <End Role="TietHoc" Type="Self.TietHoc" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="maLopHoc" />
+      </Principal>
+      <Dependent Role="TietHoc">
+        <PropertyRef Name="maLopHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TietHocBu__maLop__36B12243">
+    <End Role="LopHoc" Type="Self.LopHoc" Multiplicity="0..1" />
+    <End Role="TietHocBu" Type="Self.TietHocBu" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="LopHoc">
+        <PropertyRef Name="maLopHoc" />
+      </Principal>
+      <Dependent Role="TietHocBu">
+        <PropertyRef Name="maLopHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TietHocBu__idTie__37A5467C">
+    <End Role="TietHoc" Type="Self.TietHoc" Multiplicity="1" />
+    <End Role="TietHocBu" Type="Self.TietHocBu" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="TietHoc">
+        <PropertyRef Name="idTietHoc" />
+      </Principal>
+      <Dependent Role="TietHocBu">
+        <PropertyRef Name="idTietHoc" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="QUANLYGIANGVIENEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GiangViens" EntityType="Self.GiangVien" />
+    <EntitySet Name="LopHocs" EntityType="Self.LopHoc" />
+    <EntitySet Name="MonHocs" EntityType="Self.MonHoc" />
+    <EntitySet Name="ThongTinHocs" EntityType="Self.ThongTinHoc" />
+    <EntitySet Name="TietHocs" EntityType="Self.TietHoc" />
+    <EntitySet Name="TietHocBus" EntityType="Self.TietHocBu" />
+    <AssociationSet Name="FK__LopHoc__maGiangV__15502E78" Association="Self.FK__LopHoc__maGiangV__15502E78">
+      <End Role="GiangVien" EntitySet="GiangViens" />
+      <End Role="LopHoc" EntitySet="LopHocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__LopHoc__maMonHoc__164452B1" Association="Self.FK__LopHoc__maMonHoc__164452B1">
+      <End Role="MonHoc" EntitySet="MonHocs" />
+      <End Role="LopHoc" EntitySet="LopHocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TietHoc__maLopHo__1920BF5C" Association="Self.FK__TietHoc__maLopHo__1920BF5C">
+      <End Role="LopHoc" EntitySet="LopHocs" />
+      <End Role="TietHoc" EntitySet="TietHocs" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TietHocBu__maLop__36B12243" Association="Self.FK__TietHocBu__maLop__36B12243">
+      <End Role="LopHoc" EntitySet="LopHocs" />
+      <End Role="TietHocBu" EntitySet="TietHocBus" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TietHocBu__idTie__37A5467C" Association="Self.FK__TietHocBu__idTie__37A5467C">
+      <End Role="TietHoc" EntitySet="TietHocs" />
+      <End Role="TietHocBu" EntitySet="TietHocBus" />
+    </AssociationSet>
+    <FunctionImport Name="LayGiangVienTheoTen" ReturnType="Collection(QUANLYGIANGVIENModel.LayGiangVienTheoTen_Result)">
+      <Parameter Name="ten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="LayMonHocTheoTen" ReturnType="Collection(QUANLYGIANGVIENModel.LayMonHocTheoTen_Result)">
+      <Parameter Name="ten" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="luuThongTinHoc">
+      <Parameter Name="ngayBatDau" Mode="In" Type="DateTime" />
+      <Parameter Name="ngayKetThuc" Mode="In" Type="DateTime" />
+      <Parameter Name="soTiet" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SuaBuoiHoc">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="tenPhong" Mode="In" Type="String" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SuaBuoiHocBu">
+      <Parameter Name="idTietHoc" Mode="In" Type="Int32" />
+      <Parameter Name="maLopHoc" Mode="In" Type="Int32" />
+      <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
+      <Parameter Name="tenPhong" Mode="In" Type="String" />
+      <Parameter Name="ngayHoc" Mode="In" Type="DateTime" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="themGiangVien">
+      <Parameter Name="maGiangVien" Mode="In" Type="String" />
+      <Parameter Name="hoLotGiangVien" Mode="In" Type="String" />
+      <Parameter Name="tenGiangVien" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="themLopHoc">
+      <Parameter Name="maLopHoc" Mode="In" Type="Int32" />
+      <Parameter Name="thu" Mode="In" Type="Int32" />
+      <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
+      <Parameter Name="soTiet" Mode="In" Type="Int32" />
+      <Parameter Name="phong" Mode="In" Type="String" />
+      <Parameter Name="maLop" Mode="In" Type="String" />
+      <Parameter Name="maGiangVien" Mode="In" Type="String" />
+      <Parameter Name="maMonHoc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="themMonHoc">
+      <Parameter Name="tenMonHoc" Mode="In" Type="String" />
+      <Parameter Name="maMonHoc" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="themTietHoc">
+      <Parameter Name="maLopHoc" Mode="In" Type="Int32" />
+      <Parameter Name="tenPhong" Mode="In" Type="String" />
+      <Parameter Name="ngayHoc" Mode="In" Type="DateTime" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="themTietHocBu">
+      <Parameter Name="maLopHoc" Mode="In" Type="Int32" />
+      <Parameter Name="idTietHoc" Mode="In" Type="Int32" />
+      <Parameter Name="tenPhong" Mode="In" Type="String" />
+      <Parameter Name="ngayHoc" Mode="In" Type="DateTime" />
+      <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpDateTietHocTheoNgayNghi">
+      <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="UpDateTietHocTheoTiet_NgayNghi">
+      <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
+      <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
+      <Parameter Name="tietKetThuc" Mode="In" Type="Int32" />
+      <Parameter Name="ghiChu" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="xoaDuLieu" />
+  </EntityContainer>
+  <ComplexType Name="LayGiangVienTheoTen_Result">
+    <Property Type="String" Name="hoLotGiangVien" Nullable="true" MaxLength="60" />
+    <Property Type="String" Name="tenGiangVien" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="maGiangVien" Nullable="false" MaxLength="5" />
+  </ComplexType>
+  <ComplexType Name="LayMonHocTheoTen_Result">
+    <Property Type="String" Name="tenMonHoc" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="maMonHoc" Nullable="false" MaxLength="7" />
+  </ComplexType>
+</Schema>
