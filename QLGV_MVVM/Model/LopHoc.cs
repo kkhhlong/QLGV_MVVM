@@ -20,7 +20,7 @@ namespace QLGV_MVVM.Model
             this.TietHocs = new HashSet<TietHoc>();
             this.TietHocBus = new HashSet<TietHocBu>();
         }
-    
+
         public int maLopHoc { get; set; }
         public Nullable<int> thu { get; set; }
         public Nullable<int> tietBatDau { get; set; }
@@ -29,7 +29,7 @@ namespace QLGV_MVVM.Model
         public string maLop { get; set; }
         public string maGiangVien { get; set; }
         public string maMonHoc { get; set; }
-    
+
         public virtual GiangVien GiangVien { get; set; }
         public virtual MonHoc MonHoc { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -39,6 +39,5 @@ namespace QLGV_MVVM.Model
 
         public string NoiDung { get => "Thứ " + thu + " Tiết " + tietBatDau + " Phòng " + phong; }
         public string NoiDungLop { get => "Lớp " + maLop; }
-
     }
 }

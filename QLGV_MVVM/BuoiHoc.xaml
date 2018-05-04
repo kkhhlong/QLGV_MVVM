@@ -295,12 +295,12 @@
         <StackPanel Grid.Column="0" Grid.Row="3" Grid.RowSpan="2">
             <TextBlock Text="{Binding lh.GiangVien.TenGiangVien}" FontSize="17"  ></TextBlock>
             <TextBlock Text="{Binding lh.MonHoc.tenMonHoc}" FontSize="15" Foreground="#FFFF66" ></TextBlock>
-            <TextBlock Text="{Binding lh.NoiDungLop}" FontSize="15"  Foreground="#FFFF66" ></TextBlock>
+            <TextBlock Text="{Binding lh.NoiDung}" FontSize="15"  Foreground="#FFFF66" ></TextBlock>
         </StackPanel>
         <DockPanel Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="4">
             <Button Command="{Binding IEdit}"  HorizontalAlignment="Left" >Sửa</Button>
 
-            <Button  HorizontalAlignment="Right" >Excel</Button>
+            <Button Command="{Binding IExcel}" HorizontalAlignment="Right" >Excel</Button>
         </DockPanel>
 
         <DataGrid SelectedItem="{Binding SelectedItem,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding ListBuoiHoc,UpdateSourceTrigger=PropertyChanged}" VirtualizingPanel.IsVirtualizing="False"    Grid.Row="7" Grid.ColumnSpan="6" Name="gridTietHoc" AutoGenerateColumns="False" FontSize="15" CanUserSortColumns="False" IsReadOnly="True" >
@@ -323,12 +323,17 @@
             <DataGrid.RowStyle>
                 <Style TargetType="DataGridRow">
                     <Style.Triggers>
+                       
                         <DataTrigger Binding="{Binding trangThai}" Value="1">
-                            <Setter Property="Background" Value="Red"></Setter>
+                            <Setter Property="Opacity" Value="0.5"></Setter>
                         </DataTrigger>
-                        <DataTrigger Binding="{Binding trangThai}" Value="-1">
-                            <Setter Property="Background" Value="Green"></Setter>
+                        <DataTrigger Binding="{Binding trangThai}" Value="0">
+                            <Setter Property="Opacity" Value="0.5"></Setter>
                         </DataTrigger>
+                        <DataTrigger Binding="{Binding trangThai}" Value="2">
+                            <Setter Property="Background" Value="#321"></Setter>
+                        </DataTrigger>
+                        
                     </Style.Triggers>
                 </Style>
             </DataGrid.RowStyle>

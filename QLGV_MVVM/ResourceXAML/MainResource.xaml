@@ -9,5 +9,8 @@
     <viewmodel:BuoiHocViewModel x:Key="BuoiHocVM">
         
     </viewmodel:BuoiHocViewModel>
+    <viewmodel:NgayNghiViewModel  x:Key="NgayNghiVM">
+
+    </viewmodel:NgayNghiViewModel>
 
 </ResourceDictionary>

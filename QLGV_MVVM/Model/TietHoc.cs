@@ -12,7 +12,7 @@ namespace QLGV_MVVM.Model
     using QLGV_MVVM.DAO;
     using System;
     using System.Collections.Generic;
-    
+
     public partial class TietHoc
     {
         public Nullable<int> maLopHoc { get; set; }
@@ -21,17 +21,19 @@ namespace QLGV_MVVM.Model
         public Nullable<System.DateTime> ngayHoc { get; set; }
         public Nullable<int> trangThai { get; set; }
         public string ghiChu { get; set; }
-    
+
         public virtual LopHoc LopHoc { get; set; }
         public virtual TietHocBu TietHocBu { get; set; }
         public string Background { get => "Red"; }
 
 
-        public int Tuan { get =>this.ngayHoc ==null?0:TietHocDAO.TuanHoc(this.ngayHoc.Value);
-            
+        public int Tuan
+        {
+            get => this.ngayHoc == null ? 0 : TietHocDAO.TuanHoc(this.ngayHoc.Value);
+
         }
         public virtual string TuanHocBu { get => ""; }
-        public string Thu { get =>this.ngayHoc==null?"":getThu(); }
+        public string Thu { get => this.ngayHoc == null ? "" : getThu(); }
         public string SoTiet { get => getSoTiet(); }
         public virtual int TietBatDau { get => LopHoc.tietBatDau.Value; }
         public string TextTrangThai { get => getTrangThai(); }

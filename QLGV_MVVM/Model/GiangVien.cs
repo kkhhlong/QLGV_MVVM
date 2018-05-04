@@ -19,11 +19,11 @@ namespace QLGV_MVVM.Model
         {
             this.LopHocs = new HashSet<LopHoc>();
         }
-    
+
         public string hoLotGiangVien { get; set; }
         public string tenGiangVien { get; set; }
         public string maGiangVien { get; set; }
-    
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopHoc> LopHocs { get; set; }
         public string TenGiangVien { get => hoLotGiangVien + " " + tenGiangVien; }

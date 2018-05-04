@@ -62,7 +62,7 @@ namespace QLGV_MVVM.DAO
                 string maLop = dt[i, 10].ToString();
                 int maLopHoc = int.Parse(dt[i, 13].ToString());
                 //new GiangVien(họ lót, tên , mã)
-                GiangVien gv = null;
+               
                 if (maGv != "")
                 {
                     hoLotGv = dt[i, 8].ToString();

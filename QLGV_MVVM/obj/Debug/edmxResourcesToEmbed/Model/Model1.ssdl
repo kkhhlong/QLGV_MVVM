@@ -119,13 +119,6 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Function Name="fHocBuDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
-    <Parameter Name="maLopHoc" Type="int" Mode="In" />
-    <Parameter Name="buoiHoc" Type="date" Mode="In" />
-  </Function>
-  <Function Name="fNgayTrong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="date">
-    <Parameter Name="maLopHoc" Type="int" Mode="In" />
-  </Function>
   <Function Name="LayGiangVienTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ten" Type="nvarchar" Mode="In" />
   </Function>
@@ -190,12 +183,14 @@
   <Function Name="UpDateTietHocTheoNgayNghi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ngayNghi" Type="date" Mode="In" />
     <Parameter Name="ghiChu" Type="nvarchar" Mode="In" />
+    <Parameter Name="trangThai" Type="int" Mode="In" />
   </Function>
   <Function Name="UpDateTietHocTheoTiet_NgayNghi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="ngayNghi" Type="date" Mode="In" />
     <Parameter Name="tietBatDau" Type="int" Mode="In" />
     <Parameter Name="tietKetThuc" Type="int" Mode="In" />
     <Parameter Name="ghiChu" Type="nvarchar" Mode="In" />
+    <Parameter Name="trangThai" Type="int" Mode="In" />
   </Function>
   <Function Name="xoaDuLieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
   <EntityContainer Name="QUANLYGIANGVIENModelStoreContainer">

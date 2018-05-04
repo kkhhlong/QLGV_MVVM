@@ -91,8 +91,8 @@
     <FunctionImportMapping FunctionImportName="themMonHoc" FunctionName="QUANLYGIANGVIENModel.Store.themMonHoc" />
     <FunctionImportMapping FunctionImportName="themTietHoc" FunctionName="QUANLYGIANGVIENModel.Store.themTietHoc" />
     <FunctionImportMapping FunctionImportName="themTietHocBu" FunctionName="QUANLYGIANGVIENModel.Store.themTietHocBu" />
+    <FunctionImportMapping FunctionImportName="xoaDuLieu" FunctionName="QUANLYGIANGVIENModel.Store.xoaDuLieu" />
     <FunctionImportMapping FunctionImportName="UpDateTietHocTheoNgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoNgayNghi" />
     <FunctionImportMapping FunctionImportName="UpDateTietHocTheoTiet_NgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoTiet_NgayNghi" />
-    <FunctionImportMapping FunctionImportName="xoaDuLieu" FunctionName="QUANLYGIANGVIENModel.Store.xoaDuLieu" />
   </EntityContainerMapping>
 </Mapping>

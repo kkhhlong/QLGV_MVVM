@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QUANLYGIANGVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QUANLYGIANGVIENModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="GiangVien">
           <Key>
             <PropertyRef Name="maGiangVien" />
@@ -124,13 +124,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fHocBuDefault" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="bit">
-          <Parameter Name="maLopHoc" Type="int" Mode="In" />
-          <Parameter Name="buoiHoc" Type="date" Mode="In" />
-        </Function>
-        <Function Name="fNgayTrong" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="date">
-          <Parameter Name="maLopHoc" Type="int" Mode="In" />
-        </Function>
         <Function Name="LayGiangVienTheoTen" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ten" Type="nvarchar" Mode="In" />
         </Function>
@@ -195,12 +188,14 @@
         <Function Name="UpDateTietHocTheoNgayNghi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngayNghi" Type="date" Mode="In" />
           <Parameter Name="ghiChu" Type="nvarchar" Mode="In" />
+          <Parameter Name="trangThai" Type="int" Mode="In" />
         </Function>
         <Function Name="UpDateTietHocTheoTiet_NgayNghi" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="ngayNghi" Type="date" Mode="In" />
           <Parameter Name="tietBatDau" Type="int" Mode="In" />
           <Parameter Name="tietKetThuc" Type="int" Mode="In" />
           <Parameter Name="ghiChu" Type="nvarchar" Mode="In" />
+          <Parameter Name="trangThai" Type="int" Mode="In" />
         </Function>
         <Function Name="xoaDuLieu" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="QUANLYGIANGVIENModelStoreContainer">
@@ -231,8 +226,7 @@
             <End Role="TietHocBu" EntitySet="TietHocBu" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QUANLYGIANGVIENModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -393,10 +387,10 @@
             <End Role="TietHocBu" EntitySet="TietHocBus" />
           </AssociationSet>
           <FunctionImport Name="LayGiangVienTheoTen" ReturnType="Collection(QUANLYGIANGVIENModel.LayGiangVienTheoTen_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="LayMonHocTheoTen" ReturnType="Collection(QUANLYGIANGVIENModel.LayMonHocTheoTen_Result)">
-            <Parameter Name="ten" Mode="In" Type="String" />
+          <Parameter Name="ten" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="luuThongTinHoc">
             <Parameter Name="ngayBatDau" Mode="In" Type="DateTime" />
@@ -453,17 +447,19 @@
             <Parameter Name="trangThai" Mode="In" Type="Int32" />
             <Parameter Name="ghiChu" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="xoaDuLieu" />
           <FunctionImport Name="UpDateTietHocTheoNgayNghi">
             <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
             <Parameter Name="ghiChu" Mode="In" Type="String" />
+            <Parameter Name="trangThai" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="UpDateTietHocTheoTiet_NgayNghi">
+          <FunctionImport Name="UpDateTietHocTheoTiet_NgayNghi" >
             <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
             <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
             <Parameter Name="tietKetThuc" Mode="In" Type="Int32" />
             <Parameter Name="ghiChu" Mode="In" Type="String" />
+            <Parameter Name="trangThai" Mode="In" Type="Int32" />
           </FunctionImport>
-          <FunctionImport Name="xoaDuLieu" />
         </EntityContainer>
         <ComplexType Name="LayGiangVienTheoTen_Result">
           <Property Type="String" Name="hoLotGiangVien" Nullable="true" MaxLength="60" />
@@ -570,9 +566,9 @@
           <FunctionImportMapping FunctionImportName="themMonHoc" FunctionName="QUANLYGIANGVIENModel.Store.themMonHoc" />
           <FunctionImportMapping FunctionImportName="themTietHoc" FunctionName="QUANLYGIANGVIENModel.Store.themTietHoc" />
           <FunctionImportMapping FunctionImportName="themTietHocBu" FunctionName="QUANLYGIANGVIENModel.Store.themTietHocBu" />
+          <FunctionImportMapping FunctionImportName="xoaDuLieu" FunctionName="QUANLYGIANGVIENModel.Store.xoaDuLieu" />
           <FunctionImportMapping FunctionImportName="UpDateTietHocTheoNgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoNgayNghi" />
           <FunctionImportMapping FunctionImportName="UpDateTietHocTheoTiet_NgayNghi" FunctionName="QUANLYGIANGVIENModel.Store.UpDateTietHocTheoTiet_NgayNghi" />
-          <FunctionImportMapping FunctionImportName="xoaDuLieu" FunctionName="QUANLYGIANGVIENModel.Store.xoaDuLieu" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

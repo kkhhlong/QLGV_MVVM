@@ -217,17 +217,19 @@
       <Parameter Name="trangThai" Mode="In" Type="Int32" />
       <Parameter Name="ghiChu" Mode="In" Type="String" />
     </FunctionImport>
+    <FunctionImport Name="xoaDuLieu" />
     <FunctionImport Name="UpDateTietHocTheoNgayNghi">
       <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
       <Parameter Name="ghiChu" Mode="In" Type="String" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
     </FunctionImport>
     <FunctionImport Name="UpDateTietHocTheoTiet_NgayNghi">
       <Parameter Name="ngayNghi" Mode="In" Type="DateTime" />
       <Parameter Name="tietBatDau" Mode="In" Type="Int32" />
       <Parameter Name="tietKetThuc" Mode="In" Type="Int32" />
       <Parameter Name="ghiChu" Mode="In" Type="String" />
+      <Parameter Name="trangThai" Mode="In" Type="Int32" />
     </FunctionImport>
-    <FunctionImport Name="xoaDuLieu" />
   </EntityContainer>
   <ComplexType Name="LayGiangVienTheoTen_Result">
     <Property Type="String" Name="hoLotGiangVien" Nullable="true" MaxLength="60" />

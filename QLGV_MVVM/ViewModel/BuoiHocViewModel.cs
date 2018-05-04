@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using Excel = Microsoft.Office.Interop.Excel;
 
 namespace QLGV_MVVM.ViewModel
 {
@@ -52,6 +54,7 @@ namespace QLGV_MVVM.ViewModel
         public ICommand LoadedBuoiHocCommand { get; set; }
 
         public ICommand IEdit { get; set; }
+        public ICommand IExcel { get; set; }
         private LopHoc Lh;
         public LopHoc lh { get => Lh; set { Lh = value;OnPropertyChanged(); } }
 
@@ -115,6 +118,8 @@ namespace QLGV_MVVM.ViewModel
 
             }
             );
+            IExcel = new RelayCommand<object>((p) => { return true; }
+            , (p) => { ExportDataGridViewTo_Excel(); });
 
 
         }
@@ -151,6 +156,149 @@ namespace QLGV_MVVM.ViewModel
                     return 1;
                 default:
                     return 2; 
+            }
+        }
+        private void ExportDataGridViewTo_Excel()
+        {
+            try
+            {
+
+                Excel.Application oExcel = null; //Excel_12 Application 
+
+                Excel.Workbook oBook = null; // Excel_12 Workbook 
+
+                Excel.Sheets oSheetsColl = null; // Excel_12 Worksheets collection 
+
+                Excel.Worksheet oSheet = null; // Excel_12 Worksheet 
+
+                Excel.Range oRange = null; // Cell or Range in worksheet 
+
+                Object oMissing = System.Reflection.Missing.Value;
+
+
+                // Create an instance of Excel_12. 
+
+                oExcel = new Excel.Application();
+
+
+                // Make Excel_12 visible to the user. 
+
+                oExcel.Visible = true;
+
+
+                // Set the UserControl property so Excel_12 won't shut down. 
+
+                oExcel.UserControl = true;
+
+                // System.Globalization.CultureInfo ci = new System.Globalization.CultureInfo("en-US"); 
+
+                //object file = File_Name;
+
+                //object missing = System.Reflection.Missing.Value;
+
+
+
+                // Add a workbook. 
+
+                oBook = oExcel.Workbooks.Add(oMissing);
+
+                // Get worksheets collection 
+
+                oSheetsColl = oExcel.Worksheets;
+
+                // Get Worksheet "Sheet1" 
+
+                oSheet = (Excel.Worksheet)oSheetsColl.get_Item("Sheet1");
+                oSheet.Name = "BuoiHoc";
+
+
+
+                oSheet.Range[oSheet.Cells[1, 1], oSheet.Cells[1, 8]].Merge();
+                oRange = (Excel.Range)oSheet.Cells[1, 1];
+                oRange.Value2 = lh.GiangVien.TenGiangVien;
+
+                oRange.EntireRow.Font.Bold = true;
+                oRange.EntireRow.Font.Size = 16;
+
+                oSheet.Range[oSheet.Cells[2, 1], oSheet.Cells[2, 8]].Merge();
+                oRange = (Excel.Range)oSheet.Cells[2, 1];
+                oRange.Value2 = lh.NoiDung;
+
+                oRange.EntireRow.Font.Size = 12;
+
+
+                oSheet.Range[oSheet.Cells[3, 1], oSheet.Cells[3, 8]].Merge();
+                oRange = (Excel.Range)oSheet.Cells[3, 1];
+                oRange.Value2 = lh.NoiDungLop;
+
+                oRange.EntireRow.Font.Size = 12;
+
+
+
+                // Export titles 
+
+                string[] title = {"Ngày","Tuần","TuầnHB","Thứ","Phòng","Số tiết","Trạng thái","Ghi chú" };
+                for (int j = 0; j < title.Length; j++)
+                {
+
+                    oRange = (Excel.Range)oSheet.Cells[5, j + 1];
+
+
+                    oRange.Value2 = title[j];
+                    oRange.Interior.ColorIndex = 5;
+                    oRange.EntireRow.Font.Bold = true;
+                    oRange.EntireRow.Font.Size = 14;
+                    oRange.EntireRow.Font.ColorIndex = 2;
+                    oRange.Columns.ColumnWidth = 20;
+                    oRange.Columns.Borders.ColorIndex = 2;
+                    oRange.Columns.Borders.Weight = 2;
+                    oRange.Columns.VerticalAlignment = AlignmentY.Center;
+
+                }
+
+                // Export data 
+
+                for (int i = 0; i < ListBuoiHoc.Count; i++)
+                {
+                    TietHoc th = ((TietHoc)ListBuoiHoc[i]);
+
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 1];
+
+                    oRange.Value2 = th.ngayHoc.Value.ToShortDateString() + "";
+
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 2];
+
+                    oRange.Value2 = th.Tuan + "";
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 3];
+
+                    oRange.Value2 = th.TuanHocBu + "";
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 4];
+
+                    oRange.Value2 = th.Thu + "";
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 5];
+
+                    oRange.Value2 = th.tenPhong + "";
+
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 6];
+
+                    oRange.Value2 = th.SoTiet + "";
+
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 7];
+
+                    oRange.Value2 = th.TextTrangThai + "";
+                    oRange = (Excel.Range)oSheet.Cells[i + 6, 8];
+
+                    oRange.Value2 = th.ghiChu + "";
+
+                }
+                oBook = null;
+                oExcel.Quit();
+                oExcel = null;
+                GC.Collect();
+            }
+            catch (Exception)
+            {
+
             }
         }
     }

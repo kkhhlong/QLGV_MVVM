@@ -14,17 +14,14 @@ namespace QLGV_MVVM.Model
     using System.Data.Entity.Infrastructure;
     using System.Data.Entity.Core.Objects;
     using System.Linq;
-    public interface ITrackedEntity
-    {
-        DateTime CR_Date { get; set; }
-        DateTime LU_Date { get; set; }
-    }
+    
     public partial class QUANLYGIANGVIENEntities1 : DbContext
     {
         public QUANLYGIANGVIENEntities1()
             : base("name=QUANLYGIANGVIENEntities1")
         {
         }
+    
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -92,7 +89,7 @@ namespace QLGV_MVVM.Model
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SuaBuoiHoc", idParameter, tenPhongParameter, trangThaiParameter, ghiChuParameter);
         }
-        
+    
         public virtual int SuaBuoiHocBu(Nullable<int> idTietHoc, Nullable<int> maLopHoc, Nullable<int> tietBatDau, string tenPhong, Nullable<System.DateTime> ngayHoc, Nullable<int> trangThai, string ghiChu)
         {
             var idTietHocParameter = idTietHoc.HasValue ?
@@ -251,7 +248,12 @@ namespace QLGV_MVVM.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themTietHocBu", maLopHocParameter, idTietHocParameter, tenPhongParameter, ngayHocParameter, tietBatDauParameter, trangThaiParameter, ghiChuParameter);
         }
     
-        public virtual int UpDateTietHocTheoNgayNghi(Nullable<System.DateTime> ngayNghi, string ghiChu)
+        public virtual int xoaDuLieu()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaDuLieu");
+        }
+    
+        public virtual int UpDateTietHocTheoNgayNghi(Nullable<System.DateTime> ngayNghi, string ghiChu, Nullable<int> trangThai)
         {
             var ngayNghiParameter = ngayNghi.HasValue ?
                 new ObjectParameter("ngayNghi", ngayNghi) :
@@ -261,10 +263,14 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("ghiChu", ghiChu) :
                 new ObjectParameter("ghiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpDateTietHocTheoNgayNghi", ngayNghiParameter, ghiChuParameter);
+            var trangThaiParameter = trangThai.HasValue ?
+                new ObjectParameter("trangThai", trangThai) :
+                new ObjectParameter("trangThai", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpDateTietHocTheoNgayNghi", ngayNghiParameter, ghiChuParameter, trangThaiParameter);
         }
     
-        public virtual int UpDateTietHocTheoTiet_NgayNghi(Nullable<System.DateTime> ngayNghi, Nullable<int> tietBatDau, Nullable<int> tietKetThuc, string ghiChu)
+        public virtual int UpDateTietHocTheoTiet_NgayNghi(Nullable<System.DateTime> ngayNghi, Nullable<int> tietBatDau, Nullable<int> tietKetThuc, string ghiChu, Nullable<int> trangThai)
         {
             var ngayNghiParameter = ngayNghi.HasValue ?
                 new ObjectParameter("ngayNghi", ngayNghi) :
@@ -282,12 +288,11 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("ghiChu", ghiChu) :
                 new ObjectParameter("ghiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpDateTietHocTheoTiet_NgayNghi", ngayNghiParameter, tietBatDauParameter, tietKetThucParameter, ghiChuParameter);
-        }
+            var trangThaiParameter = trangThai.HasValue ?
+                new ObjectParameter("trangThai", trangThai) :
+                new ObjectParameter("trangThai", typeof(int));
     
-        public virtual int xoaDuLieu()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaDuLieu");
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpDateTietHocTheoTiet_NgayNghi", ngayNghiParameter, tietBatDauParameter, tietKetThucParameter, ghiChuParameter, trangThaiParameter);
         }
     }
 }

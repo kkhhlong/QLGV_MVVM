@@ -27,4 +27,6 @@ C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\bin\Release\System.Windows.Intera
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\bin\Release\System.Windows.Interactivity.xml
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\BuoiHoc.g.cs
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\BuoiHoc.baml
+C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.g.cs
+C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.baml
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csprojResolveAssemblyReference.cache

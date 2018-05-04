@@ -122,7 +122,7 @@ CREATE TRIGGER TriggerSuaBuoiHocBu ON  dbo.TietHocBu
 FOR DELETE
 AS
 DECLARE @ngayHocDeleted  DATE = (SELECT TOP 1 Deleted.ngayHoc FROM Deleted)
-DECLARE @ngayHocPre  DATE = (SELECT TOP 1 Deleted.ngayHoc FROM Deleted)
+
 DECLARE @tietBatDau INT = (SELECT TOP 1 Deleted.tietBatDau FROM Deleted)
 DECLARE @maLopHoc INT = (SELECT TOP 1 Deleted.maLopHoc FROM Deleted)
 DECLARE Trig CURSOR FOR
@@ -135,9 +135,9 @@ OPEN Trig;
 FETCH NEXT FROM Trig INTO @idTietHoc,@ngayHoc
 WHILE @@FETCH_STATUS = 0
 BEGIN
-IF( dbo.fHocBuDefault(@maLopHoc,@ngayHoc)=1 AND  DATEADD(DAY,-7,@ngayHoc) = @ngayHocPre)
+IF( dbo.fHocBuDefault(@maLopHoc,@ngayHoc)=1)
 BEGIN	
-SET @ngayHocPre = (SELECT TOP 1 ngayHoc FROM dbo.TietHocBu WHERE idTietHoc =@idTietHoc)
+
 	UPDATE dbo.TietHocBu SET ngayHoc = DATEADD(DAY,-7,@ngayHoc) WHERE idTietHoc =@idTietHoc
 	
 	END
@@ -152,7 +152,6 @@ FETCH NEXT FROM Trig INTO @idTietHoc,@ngayHoc
         GO
  
 
-  
-  
+
 
 
