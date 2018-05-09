@@ -42,53 +42,59 @@ namespace QLGV_MVVM.DAO
                 2 : tiết bắt đầu
                 3 : số tiết
                 4 : phòng
-                5 : mã môn học
-                6 : mã nhân viên
-                7 : tên môn học
-                8 : họ lót nhân viên
-                9 : tên nhân viên
-                10: mã lớp(của sinh viên)
-                13: mã lớp học
+                5 : mã nhân viên
+                6 : họ lót nhân viên
+                7 : tên nhân viên
+                8 : mã lớp 
+                9 : sĩ số 
+                10: mã nhóm
+                11:tên môn học
+                12: tín chỉ 
+                13: mã môn học
+                
                 */
                 int thu = int.Parse(dt[i, 1].ToString());
                 int tietBatDau = int.Parse(dt[i, 2].ToString());
                 int soTiet = int.Parse(dt[i, 3].ToString());
                 string phong = dt[i, 4].ToString();
-                string maMonHoc = dt[i, 5].ToString();
-                string maGv = dt[i, 6].ToString();
-                string tenMh = dt[i, 7].ToString();
-                string hoLotGv;
-                string tenGv;
-                string maLop = dt[i, 10].ToString();
-                int maLopHoc = int.Parse(dt[i, 13].ToString());
+                string maNhanVien = dt[i, 5].ToString();
+                string hoLotNhanVien; 
+                string tenNhanVien;
+                string maLop = dt[i,8].ToString();
+                int maNhom = int.Parse(dt[i, 10].ToString());
+                string tenMonHoc = dt[i, 11].ToString();
+                double tinChi = int.Parse(dt[i, 12].ToString());
+                string maMonHoc = dt[i, 13].ToString();
                 //new GiangVien(họ lót, tên , mã)
-               
-                if (maGv != "")
-                {
-                    hoLotGv = dt[i, 8].ToString();
-                    tenGv = dt[i, 9].ToString();
 
-                    try { 
-                    DataProvider.Instance.DB.themGiangVien(maGv,hoLotGv,tenGv);
-                }
-                catch
+                if (maNhanVien != "")
                 {
+                    hoLotNhanVien = dt[i, 6].ToString();
+                    tenNhanVien = dt[i, 7].ToString();
 
+                    try
+                    {
+                        DataProvider.Instance.DB.themGiangVien(maNhanVien, hoLotNhanVien, tenNhanVien);
+                    }
+                    catch
+                    {
+
+                    }
                 }
-            }
                 // new MonHoc(Mã môn học, tên môn học)
                 try
                 {
-                    DataProvider.Instance.DB.themMonHoc(tenMh, maMonHoc);
+                    DataProvider.Instance.DB.themMonHoc(tenMonHoc,maMonHoc);
                 }
                 catch 
                 {
 
                 }
 
+                DataProvider.Instance.DB.themPhongHoc(phong);                
                 //public LopHoc (int maLopHoc, int thu, int tietBd, int soTiet, string lop, GiangVien gv, MonHoc mh)
 
-                DataProvider.Instance.DB.themLopHoc(maLopHoc, thu, tietBatDau, soTiet, phong, maLop,maGv==""?null:maGv, maMonHoc);
+                DataProvider.Instance.DB.themLopHoc(i,thu,tietBatDau,soTiet,phong,maLop,maNhanVien,,maNhom,tinChi);
 
 
                
@@ -98,6 +104,7 @@ namespace QLGV_MVVM.DAO
 
 
         }
+       
         static void TaoTietHoc(DateTime ngayNhapHoc, int thu,int soBuoiHoc, int maLh,string phong)
         {
 

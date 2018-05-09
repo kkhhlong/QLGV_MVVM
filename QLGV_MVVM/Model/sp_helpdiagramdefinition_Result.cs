@@ -11,11 +11,9 @@ namespace QLGV_MVVM.Model
 {
     using System;
     
-    public partial class LayGiangVienTheoTen_Result
+    public partial class sp_helpdiagramdefinition_Result
     {
-        public int id { get; set; }
-        public string hoLotGiangVien { get; set; }
-        public string tenGiangVien { get; set; }
-        public string maGiangVien { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

@@ -13,6 +13,7 @@ namespace QLGV_MVVM.Model
     
     public partial class LayMonHocTheoTen_Result
     {
+        public int id { get; set; }
         public string tenMonHoc { get; set; }
         public string maMonHoc { get; set; }
     }

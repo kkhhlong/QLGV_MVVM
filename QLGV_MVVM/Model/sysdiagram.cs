@@ -11,17 +11,13 @@ namespace QLGV_MVVM.Model
 {
     using System;
     using System.Collections.Generic;
-
-    public partial class TietHocBu : TietHoc
+    
+    public partial class sysdiagram
     {
-
-        public Nullable<int> tietBatDau { get; set; }
-
-
-        public override int TietBatDau { get => tietBatDau == null ? 0 : tietBatDau.Value; }
-        public virtual TietHoc TietHoc { get; set; }
-        public override string TuanHocBu => TietHoc.Tuan + "";
-
-
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

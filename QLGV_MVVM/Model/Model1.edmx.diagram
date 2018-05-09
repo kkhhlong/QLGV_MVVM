@@ -4,18 +4,23 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c9e960db783c454cb55c8009a0ab29ab" Name="Diagram1">
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.GiangVien" Width="1.5" PointX="0.75" PointY="1.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.LopHoc" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.MonHoc" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.ThongTinHoc" Width="1.5" PointX="2.75" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.TietHoc" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="QUANLYGIANGVIENModel.TietHocBu" Width="1.5" PointX="7.5" PointY="1.25" IsExpanded="true" />
-        <AssociationConnector Association="QUANLYGIANGVIENModel.FK__LopHoc__maGiangV__15502E78" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYGIANGVIENModel.FK__LopHoc__maMonHoc__164452B1" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYGIANGVIENModel.FK__TietHoc__maLopHo__1920BF5C" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYGIANGVIENModel.FK__TietHocBu__maLop__36B12243" ManuallyRouted="false" />
-        <AssociationConnector Association="QUANLYGIANGVIENModel.FK__TietHocBu__idTie__37A5467C" ManuallyRouted="false" />
+      <Diagram DiagramId="4307034be4a54a2798035673b9004d1f" Name="Diagram1">
+        <EntityTypeShape EntityType="QLGVModel.BuoiHoc" Width="1.5" PointX="3" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.BuoiHocBu" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.GiangVien" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.LopHoc" Width="1.5" PointX="6" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.MonHoc" Width="1.5" PointX="3.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.Phong" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLGVModel.ThongTinHoc" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="QLGVModel.FK__BuoiHoc__idLopHo__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__BuoiHoc__tenPhon__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__BuoiHocBu__id__5CD6CB2B" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__BuoiHocBu__idLop__5EBF139D" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__BuoiHocBu__tenPh__5DCAEF64" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__LopHoc__soTinChi__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__LopHoc__idMonHoc__1920BF5C" ManuallyRouted="false" />
+        <AssociationConnector Association="QLGVModel.FK__LopHoc__tenPhong__1A14E395" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

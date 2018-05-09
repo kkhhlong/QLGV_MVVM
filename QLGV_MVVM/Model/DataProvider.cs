@@ -11,10 +11,10 @@ namespace QLGV_MVVM.Model
 
         private static DataProvider instance;
         public static DataProvider Instance { get { if (instance == null) instance = new DataProvider(); return instance; } set { instance = value; } }
-        public QUANLYGIANGVIENEntities1 DB { get; set; }
+        public QLGVEntities DB { get; set; }
         private DataProvider()
         {
-            DB = new QUANLYGIANGVIENEntities1();
+            DB = new QLGVEntities();
         }
     }
 }

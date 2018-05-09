@@ -75,6 +75,12 @@
     <Compile Include="DAO\GiangVienDAO.cs" />
     <Compile Include="DAO\LuuDuLieu.cs" />
     <Compile Include="DAO\TietHocDAO.cs" />
+    <Compile Include="Model\BuoiHoc.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\BuoiHocBu.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\DataProvider.cs" />
     <Compile Include="Model\GiangVien.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -106,13 +112,19 @@
     <Compile Include="Model\MonHoc.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Model\Phong.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sysdiagram.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Model\ThongTinHoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TietHoc.cs">
-      <DependentUpon>Model1.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Model\TietHocBu.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="NgayNghi.xaml.cs">

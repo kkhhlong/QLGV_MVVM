@@ -12,18 +12,25 @@ namespace QLGV_MVVM.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class MonHoc
+    public partial class Phong
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public MonHoc()
+        public Phong()
         {
+            this.BuoiHocs = new HashSet<BuoiHoc>();
+            this.BuoiHocBus = new HashSet<BuoiHocBu>();
             this.LopHocs = new HashSet<LopHoc>();
         }
     
-        public int id { get; set; }
-        public string tenMonHoc { get; set; }
-        public string maMonHoc { get; set; }
+        public string tenPhong { get; set; }
+        public string coSo { get; set; }
+        public Nullable<int> lau { get; set; }
+        public Nullable<bool> PM { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BuoiHoc> BuoiHocs { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<BuoiHocBu> BuoiHocBus { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<LopHoc> LopHocs { get; set; }
     }
