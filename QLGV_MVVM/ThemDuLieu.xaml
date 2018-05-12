@@ -4,20 +4,20 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:QLGV_MVVM"
+                xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"    
+         FontFamily="{DynamicResource MaterialDesignFont}"
+      TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+      TextElement.FontWeight="Bold" 
+      Background="WhiteSmoke"
+      TextElement.FontSize="13"
           mc:Ignorable="d"
         d:DesignHeight="600" d:DesignWidth="800"
          DataContext="{StaticResource ThemDuLieuVM}"
       Title="Thêm Excel"
-        
-        
-       
-        
-       
-       
        >
 
-    <DockPanel Background="#9ec3ff">
-        <Border  BorderBrush="#1956b7" BorderThickness="2 0 2 0"   Width="524" VerticalAlignment="Stretch" Padding="50">
+    <DockPanel>
+        <Border BorderThickness="2 0 2 0" BorderBrush="Black"    Width="524" VerticalAlignment="Stretch" Padding="50">
             <Grid Margin="0 10 0 0 ">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="50"/>
@@ -35,54 +35,30 @@
                     <RowDefinition Height="60"/>
                     <RowDefinition Height="60"/>
                 </Grid.RowDefinitions>
-                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" FontSize="27" Foreground="#1956b7">Nhập dữ liệu buổi học</Label>
-                <Viewbox Grid.Column="0" Grid.ColumnSpan="4" Grid.Row="1" HorizontalAlignment="Left" Width="186" Height="50">
-                    <Viewbox.Resources>
-                        <Style TargetType="DatePickerTextBox">
+                
+                <Label Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="6" FontSize="27" >Nhập dữ liệu buổi học</Label>
 
-                            <Setter Property="Text" Value="Ngày Nhập Học" />
-                            <Setter Property="IsEnabled" Value="False"/>
-                            <Setter Property="BorderBrush" Value="#1956b7"/>
-                            <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="Padding" Value="2"/>
-                            <Setter Property="Foreground" Value="#1956b7"/>
-                            <Setter Property="FontSize" Value="10"/>
-                            <Setter Property="Width" Value="100"/>
+                <WrapPanel HorizontalAlignment="Center"  Margin="0 0 0 10" Grid.Row="1"  Grid.Column="1" Grid.ColumnSpan="6">
 
 
-                        </Style>
-                    </Viewbox.Resources>
-                    <DatePicker SelectedDate="{Binding NgayNhapHoc,UpdateSourceTrigger=PropertyChanged}" BorderThickness="0"/>
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayNhapHoc}" Width="130" Height="30" FontSize="15" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày nhập học" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
-                </Viewbox>
-                <Viewbox Grid.Column="4" Grid.ColumnSpan="4" Grid.Row="1" HorizontalAlignment="Left" Width="186" Height="50">
-                    <Viewbox.Resources>
-                        <Style TargetType="DatePickerTextBox">
+                    <DatePicker VerticalAlignment="Center" SelectedDate="{Binding NgayKetThuc}" Width="130" Height="30" FontSize="15" Margin="5 5 15 -7" materialDesign:HintAssist.Hint="Ngày kết thúc" Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
 
-                            <Setter Property="Text" Value="Ngày Kết thúc" />
-                            <Setter Property="IsEnabled" Value="False"/>
-                            <Setter Property="BorderBrush" Value="#1956b7"/>
-                            <Setter Property="BorderThickness" Value="3"/>
-                            <Setter Property="Padding" Value="2"/>
-                            <Setter Property="Foreground" Value="#1956b7"/>
-                            <Setter Property="FontSize" Value="10"/>
-                            <Setter Property="Width" Value="100"/>
 
-                        </Style>
-                    </Viewbox.Resources>
-                    <DatePicker SelectedDate="{Binding NgayKetThuc,UpdateSourceTrigger=PropertyChanged}"  BorderThickness="0"/>
 
-                </Viewbox>
-                <Label  Foreground="#1956b7" FontWeight="Medium" FontSize="16" Padding="5"  Height="40" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2">Số buổi học:</Label>
-                <TextBox Text="{Binding SoBuoiHoc,UpdateSourceTrigger=PropertyChanged}" Margin="0 0 5 0" BorderBrush="#1956b7" BorderThickness="2" FontSize="18" Padding="5" TextAlignment="Center" Height="40" Grid.Row="2" Grid.Column="2">
 
-                </TextBox>
-                <TextBox Text="{Binding Link,UpdateSourceTrigger=PropertyChanged}" Margin="0 0 5 0" BorderBrush="#1956b7" BorderThickness="2" FontSize="18" Padding="5" TextAlignment="Center" Height="40" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="4" IsReadOnly="True">
+
+                </WrapPanel>
+
+                <TextBox Width="90px" Text="{Binding SoBuoiHoc, UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" Height="40" FontSize="15"  materialDesign:HintAssist.Hint="Số buổi học" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="3" />
+
+                <TextBox Text="{Binding Link,UpdateSourceTrigger=PropertyChanged}" Margin="5 5 15 5" FontSize="15" TextAlignment="Center" Height="40" Grid.Row="2" Grid.ColumnSpan="3" Grid.Column="4" IsReadOnly="True" Style="{StaticResource MaterialDesignFloatingHintTextBox}">
 
                     
                 </TextBox>
-                <Button Command="{Binding IOpenDialog}" Grid.Row="2" Grid.Column="7" Margin="0 0 3 0" Height="40" Background="#1956b7" BorderBrush="White" BorderThickness="2" Foreground="White" FontSize="15" FontWeight="Bold" >...</Button>
-                <Button Command="{Binding ILuu}" Name="luu" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Height="40" Background="#1956b7" BorderBrush="White" BorderThickness="2" Foreground="White" FontSize="15" FontWeight="Bold" >Lưu</Button>
+                <Button Command="{Binding IOpenDialog}" Grid.Row="2" Grid.Column="7" Margin="0 0 3 0" Height="40"  BorderThickness="2"  FontSize="15" FontWeight="Bold" >...</Button>
+                <Button Command="{Binding ILuu}" Name="luu" Grid.Row="3" Grid.Column="6" Grid.ColumnSpan="2" Height="40" FontSize="15" FontWeight="Bold" >Lưu</Button>
             </Grid>
         </Border>
 

@@ -20,7 +20,6 @@ namespace QLGV_MVVM.Model
             this.LopHocs = new HashSet<LopHoc>();
         }
     
-        public int id { get; set; }
         public string tenMonHoc { get; set; }
         public string maMonHoc { get; set; }
     

@@ -81,6 +81,7 @@ namespace QLGV_MVVM.ViewModel
                 Isloaded = true;
                 lh = PassingLopHoc.lh;
                 LoadList();
+                
                
             }
              );

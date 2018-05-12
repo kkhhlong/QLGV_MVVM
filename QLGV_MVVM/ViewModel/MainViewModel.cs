@@ -15,7 +15,7 @@ namespace QLGV_MVVM.ViewModel
         public ICommand ILuuDuLieu { get; set; }
         string timTenGiangVien = "";
         LopHoc lopHocSelected;
-        
+        public ICommand INgayNghi { get; set; }
         public LopHoc LopHocSelected { get=>lopHocSelected; set
             {
 
@@ -59,7 +59,13 @@ namespace QLGV_MVVM.ViewModel
                  themDuLieu.ShowDialog();
                  ListGiangVien = GiangVienDAO.getListGiangVien(DataProvider.Instance.DB.LayGiangVienTheoTen(timTenGiangVien).ToList());
              });
-            
+            INgayNghi = new RelayCommand<object>((p) => { return true; }, (p) =>
+            {
+                NgayNghi themDuLieu = new NgayNghi();
+                themDuLieu.ShowDialog();
+               
+            });
+
 
         }
     }

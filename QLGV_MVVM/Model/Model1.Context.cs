@@ -15,10 +15,10 @@ namespace QLGV_MVVM.Model
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class QLGVEntities : DbContext
+    public partial class QUANLYGIANGVIENEntities1 : DbContext
     {
-        public QLGVEntities()
-            : base("name=QLGVEntities")
+        public QUANLYGIANGVIENEntities1()
+            : base("name=QUANLYGIANGVIENEntities1")
         {
         }
     
@@ -27,14 +27,12 @@ namespace QLGV_MVVM.Model
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<BuoiHoc> BuoiHocs { get; set; }
-        public virtual DbSet<BuoiHocBu> BuoiHocBus { get; set; }
         public virtual DbSet<GiangVien> GiangViens { get; set; }
         public virtual DbSet<LopHoc> LopHocs { get; set; }
         public virtual DbSet<MonHoc> MonHocs { get; set; }
-        public virtual DbSet<Phong> Phongs { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<ThongTinHoc> ThongTinHocs { get; set; }
+        public virtual DbSet<TietHoc> TietHocs { get; set; }
+        public virtual DbSet<TietHocBu> TietHocBus { get; set; }
     
         public virtual ObjectResult<LayGiangVienTheoTen_Result> LayGiangVienTheoTen(string ten)
         {
@@ -69,109 +67,6 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("soTiet", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("luuThongTinHoc", ngayBatDauParameter, ngayKetThucParameter, soTietParameter);
-        }
-    
-        public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_creatediagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var versionParameter = version.HasValue ?
-                new ObjectParameter("version", version) :
-                new ObjectParameter("version", typeof(int));
-    
-            var definitionParameter = definition != null ?
-                new ObjectParameter("definition", definition) :
-                new ObjectParameter("definition", typeof(byte[]));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
-        }
-    
-        public virtual int sp_dropdiagram(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagramdefinition_Result> sp_helpdiagramdefinition(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagramdefinition_Result>("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual ObjectResult<sp_helpdiagrams_Result> sp_helpdiagrams(string diagramname, Nullable<int> owner_id)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<sp_helpdiagrams_Result>("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
-        }
-    
-        public virtual int sp_renamediagram(string diagramname, Nullable<int> owner_id, string new_diagramname)
-        {
-            var diagramnameParameter = diagramname != null ?
-                new ObjectParameter("diagramname", diagramname) :
-                new ObjectParameter("diagramname", typeof(string));
-    
-            var owner_idParameter = owner_id.HasValue ?
-                new ObjectParameter("owner_id", owner_id) :
-                new ObjectParameter("owner_id", typeof(int));
-    
-            var new_diagramnameParameter = new_diagramname != null ?
-                new ObjectParameter("new_diagramname", new_diagramname) :
-                new ObjectParameter("new_diagramname", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
-        }
-    
-        public virtual int sp_upgraddiagrams()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
         }
     
         public virtual int SuaBuoiHoc(Nullable<int> id, string tenPhong, Nullable<int> trangThai, string ghiChu)
@@ -228,7 +123,74 @@ namespace QLGV_MVVM.Model
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SuaBuoiHocBu", idTietHocParameter, maLopHocParameter, tietBatDauParameter, tenPhongParameter, ngayHocParameter, trangThaiParameter, ghiChuParameter);
         }
     
-        public virtual int themBuoiHoc(Nullable<int> maLopHoc, string tenPhong, Nullable<System.DateTime> ngayHoc, Nullable<int> trangThai, string ghiChu)
+        public virtual int themGiangVien(string maGiangVien, string hoLotGiangVien, string tenGiangVien)
+        {
+            var maGiangVienParameter = maGiangVien != null ?
+                new ObjectParameter("maGiangVien", maGiangVien) :
+                new ObjectParameter("maGiangVien", typeof(string));
+    
+            var hoLotGiangVienParameter = hoLotGiangVien != null ?
+                new ObjectParameter("hoLotGiangVien", hoLotGiangVien) :
+                new ObjectParameter("hoLotGiangVien", typeof(string));
+    
+            var tenGiangVienParameter = tenGiangVien != null ?
+                new ObjectParameter("tenGiangVien", tenGiangVien) :
+                new ObjectParameter("tenGiangVien", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themGiangVien", maGiangVienParameter, hoLotGiangVienParameter, tenGiangVienParameter);
+        }
+    
+        public virtual int themLopHoc(Nullable<int> maLopHoc, Nullable<int> thu, Nullable<int> tietBatDau, Nullable<int> soTiet, string phong, string maLop, string maGiangVien, string maMonHoc)
+        {
+            var maLopHocParameter = maLopHoc.HasValue ?
+                new ObjectParameter("maLopHoc", maLopHoc) :
+                new ObjectParameter("maLopHoc", typeof(int));
+    
+            var thuParameter = thu.HasValue ?
+                new ObjectParameter("thu", thu) :
+                new ObjectParameter("thu", typeof(int));
+    
+            var tietBatDauParameter = tietBatDau.HasValue ?
+                new ObjectParameter("tietBatDau", tietBatDau) :
+                new ObjectParameter("tietBatDau", typeof(int));
+    
+            var soTietParameter = soTiet.HasValue ?
+                new ObjectParameter("soTiet", soTiet) :
+                new ObjectParameter("soTiet", typeof(int));
+    
+            var phongParameter = phong != null ?
+                new ObjectParameter("phong", phong) :
+                new ObjectParameter("phong", typeof(string));
+    
+            var maLopParameter = maLop != null ?
+                new ObjectParameter("maLop", maLop) :
+                new ObjectParameter("maLop", typeof(string));
+    
+            var maGiangVienParameter = maGiangVien != null ?
+                new ObjectParameter("maGiangVien", maGiangVien) :
+                new ObjectParameter("maGiangVien", typeof(string));
+    
+            var maMonHocParameter = maMonHoc != null ?
+                new ObjectParameter("maMonHoc", maMonHoc) :
+                new ObjectParameter("maMonHoc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themLopHoc", maLopHocParameter, thuParameter, tietBatDauParameter, soTietParameter, phongParameter, maLopParameter, maGiangVienParameter, maMonHocParameter);
+        }
+    
+        public virtual int themMonHoc(string tenMonHoc, string maMonHoc)
+        {
+            var tenMonHocParameter = tenMonHoc != null ?
+                new ObjectParameter("tenMonHoc", tenMonHoc) :
+                new ObjectParameter("tenMonHoc", typeof(string));
+    
+            var maMonHocParameter = maMonHoc != null ?
+                new ObjectParameter("maMonHoc", maMonHoc) :
+                new ObjectParameter("maMonHoc", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themMonHoc", tenMonHocParameter, maMonHocParameter);
+        }
+    
+        public virtual int themTietHoc(Nullable<int> maLopHoc, string tenPhong, Nullable<System.DateTime> ngayHoc, Nullable<int> trangThai, string ghiChu)
         {
             var maLopHocParameter = maLopHoc.HasValue ?
                 new ObjectParameter("maLopHoc", maLopHoc) :
@@ -250,10 +212,10 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("ghiChu", ghiChu) :
                 new ObjectParameter("ghiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themBuoiHoc", maLopHocParameter, tenPhongParameter, ngayHocParameter, trangThaiParameter, ghiChuParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themTietHoc", maLopHocParameter, tenPhongParameter, ngayHocParameter, trangThaiParameter, ghiChuParameter);
         }
     
-        public virtual int themBuoiHocBu(Nullable<int> maLopHoc, Nullable<int> idTietHoc, string tenPhong, Nullable<System.DateTime> ngayHoc, Nullable<int> tietBatDau, Nullable<int> trangThai, string ghiChu)
+        public virtual int themTietHocBu(Nullable<int> maLopHoc, Nullable<int> idTietHoc, string tenPhong, Nullable<System.DateTime> ngayHoc, Nullable<int> tietBatDau, Nullable<int> trangThai, string ghiChu)
         {
             var maLopHocParameter = maLopHoc.HasValue ?
                 new ObjectParameter("maLopHoc", maLopHoc) :
@@ -283,91 +245,12 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("ghiChu", ghiChu) :
                 new ObjectParameter("ghiChu", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themBuoiHocBu", maLopHocParameter, idTietHocParameter, tenPhongParameter, ngayHocParameter, tietBatDauParameter, trangThaiParameter, ghiChuParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themTietHocBu", maLopHocParameter, idTietHocParameter, tenPhongParameter, ngayHocParameter, tietBatDauParameter, trangThaiParameter, ghiChuParameter);
         }
     
-        public virtual int themGiangVien(string maGiangVien, string hoLotGiangVien, string tenGiangVien)
+        public virtual int xoaDuLieu()
         {
-            var maGiangVienParameter = maGiangVien != null ?
-                new ObjectParameter("maGiangVien", maGiangVien) :
-                new ObjectParameter("maGiangVien", typeof(string));
-    
-            var hoLotGiangVienParameter = hoLotGiangVien != null ?
-                new ObjectParameter("hoLotGiangVien", hoLotGiangVien) :
-                new ObjectParameter("hoLotGiangVien", typeof(string));
-    
-            var tenGiangVienParameter = tenGiangVien != null ?
-                new ObjectParameter("tenGiangVien", tenGiangVien) :
-                new ObjectParameter("tenGiangVien", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themGiangVien", maGiangVienParameter, hoLotGiangVienParameter, tenGiangVienParameter);
-        }
-    
-        public virtual int themLopHoc(Nullable<int> maLopHoc, Nullable<int> thu, Nullable<int> tietBatDau, Nullable<int> soTiet, string phong, string maLop, Nullable<int> maGiangVien, Nullable<int> maMonHoc, Nullable<int> nhom, Nullable<double> soTc)
-        {
-            var maLopHocParameter = maLopHoc.HasValue ?
-                new ObjectParameter("maLopHoc", maLopHoc) :
-                new ObjectParameter("maLopHoc", typeof(int));
-    
-            var thuParameter = thu.HasValue ?
-                new ObjectParameter("thu", thu) :
-                new ObjectParameter("thu", typeof(int));
-    
-            var tietBatDauParameter = tietBatDau.HasValue ?
-                new ObjectParameter("tietBatDau", tietBatDau) :
-                new ObjectParameter("tietBatDau", typeof(int));
-    
-            var soTietParameter = soTiet.HasValue ?
-                new ObjectParameter("soTiet", soTiet) :
-                new ObjectParameter("soTiet", typeof(int));
-    
-            var phongParameter = phong != null ?
-                new ObjectParameter("phong", phong) :
-                new ObjectParameter("phong", typeof(string));
-    
-            var maLopParameter = maLop != null ?
-                new ObjectParameter("maLop", maLop) :
-                new ObjectParameter("maLop", typeof(string));
-    
-            var maGiangVienParameter = maGiangVien.HasValue ?
-                new ObjectParameter("maGiangVien", maGiangVien) :
-                new ObjectParameter("maGiangVien", typeof(int));
-    
-            var maMonHocParameter = maMonHoc.HasValue ?
-                new ObjectParameter("maMonHoc", maMonHoc) :
-                new ObjectParameter("maMonHoc", typeof(int));
-    
-            var nhomParameter = nhom.HasValue ?
-                new ObjectParameter("nhom", nhom) :
-                new ObjectParameter("nhom", typeof(int));
-    
-            var soTcParameter = soTc.HasValue ?
-                new ObjectParameter("soTc", soTc) :
-                new ObjectParameter("soTc", typeof(double));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themLopHoc", maLopHocParameter, thuParameter, tietBatDauParameter, soTietParameter, phongParameter, maLopParameter, maGiangVienParameter, maMonHocParameter, nhomParameter, soTcParameter);
-        }
-    
-        public virtual int themMonHoc(string tenMonHoc, string maMonHoc)
-        {
-            var tenMonHocParameter = tenMonHoc != null ?
-                new ObjectParameter("tenMonHoc", tenMonHoc) :
-                new ObjectParameter("tenMonHoc", typeof(string));
-    
-            var maMonHocParameter = maMonHoc != null ?
-                new ObjectParameter("maMonHoc", maMonHoc) :
-                new ObjectParameter("maMonHoc", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themMonHoc", tenMonHocParameter, maMonHocParameter);
-        }
-    
-        public virtual int themPhongHoc(string tenPhong)
-        {
-            var tenPhongParameter = tenPhong != null ?
-                new ObjectParameter("tenPhong", tenPhong) :
-                new ObjectParameter("tenPhong", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("themPhongHoc", tenPhongParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaDuLieu");
         }
     
         public virtual int UpDateTietHocTheoNgayNghi(Nullable<System.DateTime> ngayNghi, string ghiChu, Nullable<int> trangThai)
@@ -410,11 +293,6 @@ namespace QLGV_MVVM.Model
                 new ObjectParameter("trangThai", typeof(int));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpDateTietHocTheoTiet_NgayNghi", ngayNghiParameter, tietBatDauParameter, tietKetThucParameter, ghiChuParameter, trangThaiParameter);
-        }
-    
-        public virtual int xoaDuLieu()
-        {
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("xoaDuLieu");
         }
     }
 }

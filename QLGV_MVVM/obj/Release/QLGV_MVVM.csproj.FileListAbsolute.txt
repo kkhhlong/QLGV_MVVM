@@ -30,3 +30,39 @@ C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\BuoiHoc.baml
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.g.cs
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.baml
 C:\Users\user\source\repos\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csprojResolveAssemblyReference.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\QLGV_MVVM.exe.config
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\QLGV_MVVM.exe
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\QLGV_MVVM.pdb
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\EntityFramework.dll
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\EntityFramework.SqlServer.dll
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\EntityFramework.xml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\EntityFramework.SqlServer.xml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\System.Windows.Interactivity.xml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csprojResolveAssemblyReference.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csproj.ResolveComReference.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\BuoiHoc.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\MainWindow.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\ThemDuLieu.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\App.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM_Content.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\GeneratedInternalTypeHelper.g.cs
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM_MarkupCompile.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM_MarkupCompile.lref
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\App.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\BuoiHoc.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\MainWindow.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\NgayNghi.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\ResourceXAML\MainResource.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\ThemDuLieu.baml
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.g.resources
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.Properties.Resources.resources
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csproj.GenerateResource.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csproj.CoreCompileInputs.cache
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.csproj.CopyComplete
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.exe
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\obj\Release\QLGV_MVVM.pdb
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\MaterialDesignColors.dll
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\MaterialDesignThemes.Wpf.dll
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\MaterialDesignThemes.Wpf.pdb
+D:\Code\C#\WPF\ĐỒ ÁN\QLGV_MVVM\QLGV_MVVM\bin\Release\MaterialDesignThemes.Wpf.xml

@@ -13,7 +13,6 @@ namespace QLGV_MVVM.Model
     
     public partial class LayGiangVienTheoTen_Result
     {
-        public int id { get; set; }
         public string hoLotGiangVien { get; set; }
         public string tenGiangVien { get; set; }
         public string maGiangVien { get; set; }

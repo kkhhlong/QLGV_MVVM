@@ -1,1 +1,0 @@
-# QLGV_MVVM
